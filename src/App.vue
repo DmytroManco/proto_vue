@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <navbar :navItems="routes"></navbar>
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
@@ -30,3 +31,20 @@
   }
 }
 </style>
+<script lang="ts">
+
+import Navbar from '@/components/navbar/navbar.vue';
+import { Component, Prop, Vue } from 'vue-property-decorator';
+
+@Component({
+  components: {
+    Navbar,
+  },
+})
+export default class App extends Vue {
+  public routes = [
+    { title: 'Home', path: '/' },
+    { title: 'About', path: 'about' },
+  ];
+}
+</script>
