@@ -1,10 +1,6 @@
 <template>
   <div id="app">
     <navbar :navItems="routes"></navbar>
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
@@ -35,6 +31,7 @@
 
 import Navbar from '@/components/navbar/navbar.vue';
 import { Component, Prop, Vue } from 'vue-property-decorator';
+import RouteConstants from '@/constants/routes.constant';
 
 @Component({
   components: {
@@ -42,9 +39,6 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
   },
 })
 export default class App extends Vue {
-  public routes = [
-    { title: 'Home', path: '/' },
-    { title: 'About', path: 'about' },
-  ];
+  public routes = RouteConstants.NAV_ROUTES;
 }
 </script>
