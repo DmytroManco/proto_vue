@@ -4,10 +4,11 @@
     <nav class="navbar__nav nav">
       <ul>
         <li
+          class="nav__item"
           v-for="(item, index) in navItems"
           :key="index"
         >
-          <router-link :to="item.path">
+          <router-link :to="item.path" exact>
             {{item.title}}
           </router-link>
         </li>
@@ -34,4 +35,31 @@ export default class Navbar extends Vue {
 </script>
 
 <style scoped lang="scss">
+  .navbar {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    padding: 0 15px;
+    background: $lightBlue;
+  }
+  .navbar__nav {
+    flex: 3;
+    ul {
+      list-style: none;
+    }
+    .nav__item {
+      display: inline-block;
+      margin: 0 15px;
+      a {
+        text-decoration: none;
+        color: $gray;
+      }
+      a.router-link-active {
+        color: $black;
+      }
+    }
+  }
+  .navbar__search {
+    flex: 2;
+  }
 </style>
