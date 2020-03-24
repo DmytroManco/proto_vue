@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/patients',
     name: 'Patients',
-    component: () => import( '../views/Patients.vue'),
+    component: () => import('../views/Patients.vue'),
   },
   {
     path: '/patient/:id',
@@ -30,8 +30,8 @@ const routes = [
         path: 'procedure',
         name: 'addProcedure',
         component: AddProcedure,
-      }
-    ]
+      },
+    ],
   },
 ];
 
