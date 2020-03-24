@@ -19,7 +19,7 @@ body {
 <script lang="ts">
 
 import Navbar from '@/components/navbar/navbar.vue';
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 import RouteConstants from '@/constants/routes.constant';
 
 @Component({
