@@ -15,7 +15,7 @@
       </ul>
     </nav>
     <div class="navbar__search search">
-      Search Component
+      <search-component></search-component>
     </div>
   </div>
 </template>
@@ -24,9 +24,11 @@
 
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { NavItem } from '@/interfaces/navitem.d';
+import SearchComponent from '@/shared/search/search-component.vue';
 
 @Component({
   name: 'navbar',
+  components: { SearchComponent },
 })
 export default class Navbar extends Vue {
   @Prop() private navItems!: NavItem[];
