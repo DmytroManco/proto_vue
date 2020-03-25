@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <h3>Patient List</h3>
-    <div class="patient__list">
-      <patient-card  v-for="(patient, index) in patientsMock"
-                     :key="index"
-                     :patient="patient">
+    <div class="patient-list">
+      <patient-card
+        v-for="(patient, index) in patientsMock"
+        :key="index"
+        :patient="patient">
       </patient-card>
     </div>
   </div>
@@ -39,3 +39,15 @@ export default class Home extends Vue {
   ]
 }
 </script>
+
+<style lang="scss">
+  .home {
+    margin: 10px;
+  }
+  .patient-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 1em;
+  }
+</style>

@@ -4,7 +4,7 @@
       {{patient.firstName}} {{patient.secondName}}
     </div>
     <div class="card__address">
-      {{patient.city}} {{patient.zip}}
+      City: {{patient.city}}, Zip: {{patient.zip}}
     </div>
     <div class="card__actions">
       <button
@@ -34,5 +34,29 @@ export default class PatientCard extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
+  .card {
+    padding: 15px 10px;
+    border: 1px solid $lightGray;
+    border-radius: 10px;
+    &__name {
+      font-size: 16px;
+      font-weight: bolder;
+      margin-bottom: 10px;
+    }
+    &__address {
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    &__actions {
+      margin-bottom: 5px;
+    }
+  }
+  .card__goto {
+    padding: 10px 25px;
+    color: $white;
+    background: $blue;
+    border-radius: 5px;
+    border: 0;
+  }
 </style>
