@@ -1,0 +1,80 @@
+<template>
+    <div class="bar">
+      <div
+        class="bar-item"
+        v-for="(procedure, index) in procedures"
+        :key="index"
+      >
+        {{procedure.title}}
+        <span class="bar-item__amount">{{procedure.amount}}</span>
+      </div>
+    </div>
+</template>
+
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator';
+import { IProcedure } from '@/interfaces/procedure.d';
+
+@Component({
+  name: 'patient-procedure-bar',
+})
+export default class PatientProcedureBar extends Vue {
+  // TODO: remove mock
+  @Prop() procedures: IProcedure[] = [
+    {
+      title: 'Procedure 1',
+      amount: 14,
+      date: '14/11/20',
+      provider: 'Provider 1',
+      status: 'Status',
+      insuranceCovered: false,
+      notes: 'Very important procedure',
+    },
+    {
+      title: 'Procedure 2',
+      amount: 2,
+      date: '14/11/20',
+      provider: 'Provider 1',
+      status: 'Status',
+      insuranceCovered: false,
+      notes: 'Very important procedure',
+    },
+    {
+      title: 'Procedure 3',
+      amount: 1,
+      date: '14/11/20',
+      provider: 'Provider 1',
+      status: 'Status',
+      insuranceCovered: false,
+      notes: 'Very important procedure',
+    },
+  ];
+}
+</script>
+
+<style lang="scss" scoped>
+  .bar {
+    border: 1px solid $lightGray;
+    border-radius: 5px;
+    // TODO: remove
+    max-width: 300px;
+  }
+  .bar-item {
+    padding: 15px 10px;
+    border-bottom: 1px solid $lightGray;
+    position: relative;
+    &__amount {
+      position: absolute;
+      right: 15px;
+      background: $blue;
+      padding: 5px 10px;
+      border-radius: 10px;
+      color: $white;
+      top: calc(50% - 10px);
+      font-size: 12px;
+    }
+  }
+  .bar-item:last-child {
+    border-bottom: none;
+  }
+</style>

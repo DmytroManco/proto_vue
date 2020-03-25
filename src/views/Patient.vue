@@ -19,5 +19,7 @@ export default class Patient extends Vue {
 </script>
 
 <style lang="scss" scoped>
-
+  .patient {
+    margin: 0 10px;
+  }
 </style>
