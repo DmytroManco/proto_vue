@@ -1,0 +1,18 @@
+{
+  "patients": [
+    {
+      "id": "12345678",
+      "firstName": "Bob",
+      "secondName": "Knob",
+      "zip": 491090,
+      "city": "Detroit"
+    },
+    {
+      "id": "87654321",
+      "firstName": "Rob",
+      "secondName": "Brob",
+      "zip": 665775859,
+      "city": "New Alexandrivka"
+    }
+  ]
+}
