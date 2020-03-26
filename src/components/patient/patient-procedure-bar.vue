@@ -19,36 +19,7 @@ import { IProcedure } from '@/interfaces/procedure.d';
   name: 'patient-procedure-bar',
 })
 export default class PatientProcedureBar extends Vue {
-  // TODO: remove mock
-  @Prop() procedures: IProcedure[] = [
-    {
-      title: 'Procedure 1',
-      amount: 14,
-      date: '14/11/20',
-      provider: 'Provider 1',
-      status: 'Status',
-      insuranceCovered: false,
-      notes: 'Very important procedure',
-    },
-    {
-      title: 'Procedure 2',
-      amount: 2,
-      date: '14/11/20',
-      provider: 'Provider 1',
-      status: 'Status',
-      insuranceCovered: false,
-      notes: 'Very important procedure',
-    },
-    {
-      title: 'Procedure 3',
-      amount: 1,
-      date: '14/11/20',
-      provider: 'Provider 1',
-      status: 'Status',
-      insuranceCovered: false,
-      notes: 'Very important procedure',
-    },
-  ];
+  @Prop() procedures!: IProcedure[];
 }
 </script>
 
