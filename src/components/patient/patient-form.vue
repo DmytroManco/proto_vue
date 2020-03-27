@@ -1,5 +1,8 @@
 <template>
-  <form class="patient-form" @submit="submitForm($event)">
+  <form
+    class="patient-form"
+    @submit="submitForm($event)"
+    v-if="model">
     <div class="form-row">
       <label>
         Email
@@ -44,21 +47,22 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
 import { PatientFormModel } from '@/models/patient-form.model';
-import { PatientI } from '@/interfaces/patient.d';
 
 @Component({
   name: 'patient-form',
 })
 export default class PatientForm extends Vue {
-  model!: PatientFormModel;
 
-  @Prop() patient!: PatientI;
+  get model() {
+    if (!this.$store.getters.getCurrentPatient) {
+      return null;
+    }
 
-  created() {
-    this.model = new PatientFormModel(this.patient);
+    return new PatientFormModel(this.$store.getters.getCurrentPatient);
   }
 
   submitForm(event: InputEvent) {
+    console.log(this.model);
     event.preventDefault();
   }
 }
