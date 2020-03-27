@@ -27,8 +27,6 @@ export default class PatientProcedureBar extends Vue {
   .bar {
     border: 1px solid $lightGray;
     border-radius: 5px;
-    // TODO: remove
-    max-width: 300px;
   }
   .bar-item {
     padding: 15px 10px;

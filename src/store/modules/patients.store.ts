@@ -27,7 +27,7 @@ export const PatientsStore: Module<PatientsStateI, any> = {
       const response = await fetch(`${BASE_PATIENT_API}/${id}`);
       const patient = await response.json();
       commit('setCurrentPatient', patient);
-    }
+    },
   },
   mutations: {
     setPatientsToStore: (state, patients) => { state.patients = patients; },
