@@ -54,9 +54,19 @@ export default class PatientInfo extends Vue {
 </script>
 
 <style lang="scss" scoped>
+  .info {
+    display: flex;
+    flex-flow: row wrap;
+  }
   .procedures {
+    flex: 1;
     &__title {
       margin: 15px 20px 10px;
     }
+  }
+  .form {
+    flex: 3;
+    margin-top: 20px;
+    margin-left: 15px;
   }
 </style>
