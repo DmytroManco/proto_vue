@@ -15,6 +15,10 @@ import { Component, Vue } from 'vue-property-decorator';
   name: 'patient',
 })
 export default class Patient extends Vue {
+  created() {
+    const patientID = this.$route.params.id;
+    this.$store.dispatch('getPatient', patientID);
+  }
 }
 </script>
 
