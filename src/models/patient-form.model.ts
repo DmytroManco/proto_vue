@@ -1,17 +1,24 @@
-import { IPatient } from '@/interfaces/patient';
+import { PatientI } from '@/interfaces/patient.d';
 
 export class PatientFormModel {
   id: string;
+
   email: string;
+
   phone: string;
+
   address: string;
+
   address2: string;
+
   state: string;
+
   city: string;
+
   zip: number;
 
   // TODO: default values only for dev purposes
-  constructor(patient: IPatient = {} as IPatient) {
+  constructor(patient: PatientI = {} as PatientI) {
     this.id = patient.id || '';
     this.email = patient.email || '';
     this.phone = patient.phone || '';

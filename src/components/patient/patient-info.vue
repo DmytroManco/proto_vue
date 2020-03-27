@@ -50,7 +50,7 @@ export default class PatientInfo extends Vue {
       notes: 'Very important procedure',
     },
   ];
-};
+}
 </script>
 
 <style lang="scss" scoped>

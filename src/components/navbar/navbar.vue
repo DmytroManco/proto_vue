@@ -23,7 +23,7 @@
 <script lang="ts">
 
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { NavItem } from '@/interfaces/navitem.d';
+import { NavItemI } from '@/interfaces/navitem.d';
 import SearchComponent from '@/shared/search/search-component.vue';
 
 @Component({
@@ -31,7 +31,7 @@ import SearchComponent from '@/shared/search/search-component.vue';
   components: { SearchComponent },
 })
 export default class Navbar extends Vue {
-  @Prop() private navItems!: NavItem[];
+  @Prop() private navItems!: NavItemI[];
 }
 
 </script>

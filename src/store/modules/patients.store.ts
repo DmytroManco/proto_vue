@@ -1,8 +1,8 @@
 import { Module } from 'vuex';
-import { IPatient } from '@/interfaces/patient.d';
+import { PatientI } from '@/interfaces/patient.d';
 
 interface PatientsStateI {
-  patients: IPatient[];
+  patients: PatientI[];
 }
 
 export const PatientsStore: Module<PatientsStateI, any> = {
