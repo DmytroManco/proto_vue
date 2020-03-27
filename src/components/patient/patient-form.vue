@@ -52,7 +52,6 @@ import { PatientFormModel } from '@/models/patient-form.model';
   name: 'patient-form',
 })
 export default class PatientForm extends Vue {
-
   get model() {
     if (!this.$store.getters.getCurrentPatient) {
       return null;
