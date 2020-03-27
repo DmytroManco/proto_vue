@@ -2,7 +2,7 @@
   <div class="home">
     <div class="patient-list">
       <patient-card
-        v-for="(patient, index) in patientsMock"
+        v-for="(patient, index) in this.$store.getters.getPatientList"
         :key="index"
         :patient="patient">
       </patient-card>
@@ -20,23 +20,9 @@ import { Vue, Component } from 'vue-property-decorator';
   components: { PatientCard },
 })
 export default class Home extends Vue {
-  // TODO: remove mock
-  patientsMock = [
-    {
-      id: '12345678',
-      firstName: 'Bob',
-      secondName: 'Knob',
-      zip: 491090,
-      city: 'Detroit',
-    },
-    {
-      id: '87654321',
-      firstName: 'Rob',
-      secondName: 'Brob',
-      zip: 665775859,
-      city: 'New Alexandrivka',
-    },
-  ]
+  mounted() {
+    this.$store.dispatch('getPatients');
+  }
 }
 </script>
 

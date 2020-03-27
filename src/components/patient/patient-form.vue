@@ -44,7 +44,7 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
 import { PatientFormModel } from '@/models/patient-form.model';
-import { IPatient } from '@/interfaces/patient.d';
+import { PatientI } from '@/interfaces/patient.d';
 
 @Component({
   name: 'patient-form',
@@ -52,14 +52,13 @@ import { IPatient } from '@/interfaces/patient.d';
 export default class PatientForm extends Vue {
   model!: PatientFormModel;
 
-  @Prop() patient!: IPatient;
+  @Prop() patient!: PatientI;
 
   created() {
     this.model = new PatientFormModel(this.patient);
   }
 
   submitForm(event: InputEvent) {
-    console.log(this.model);
     event.preventDefault();
   }
 }
