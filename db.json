@@ -28,28 +28,33 @@
   "procedures": [
     {
       "id": "12345678",
-      "title": "Procedure 1",
-      "amount": 10
-    },
-    {
-      "id": "12345678",
-      "title": "Procedure 3",
-      "amount": 1
-    },
-    {
-      "id": "12345678",
-      "title": "Procedure 3",
-      "amount": 2
-    },
-    {
-      "id": "87654321",
-      "title": "Procedure For Rob",
-      "amount": 2
+      "procedures": [
+        {
+          "title": "Procedure 1",
+          "amount": 10
+        },
+        {
+          "title": "Procedure 3",
+          "amount": 1
+        },
+        {
+          "title": "Procedure 3",
+          "amount": 2
+        }
+      ]
     },
     {
       "id": "87654321",
-      "title": "Procedure 2 For Rob",
-      "amount": 4
+      "procedures": [
+        {
+          "title": "Procedure For Rob",
+          "amount": 2
+        },
+        {
+          "title": "Procedure 2 For Rob",
+          "amount": 4
+        }
+      ]
     }
   ]
 }
