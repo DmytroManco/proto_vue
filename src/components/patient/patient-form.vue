@@ -47,7 +47,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component } from 'vue-property-decorator';
 
 import { PatientFormModel } from '@/models/patient-form.model';
 
@@ -64,7 +64,8 @@ export default class PatientForm extends Vue {
   }
 
   submitForm(event: InputEvent) {
-    console.log(this.model);
+    const updatedPatient = Object.assign(this.$store.getters.getCurrentPatient, this.model);
+    this.$store.dispatch('updatePatientInfo', updatedPatient);
     event.preventDefault();
   }
 }

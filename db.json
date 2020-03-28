@@ -2,8 +2,13 @@
   "patients": [
     {
       "id": "12345678",
+      "email": "bob234@outlook.com",
+      "address": "New Street 22",
+      "address2": "",
       "firstName": "Bob",
       "secondName": "Knob",
+      "phone": "+7 10 19823827",
+      "state": "Michigan",
       "zip": 491090,
       "city": "Detroit"
     },
@@ -11,6 +16,11 @@
       "id": "87654321",
       "firstName": "Rob",
       "secondName": "Brob",
+      "phone": "+380 50 1089090",
+      "address": "Pain av 34",
+      "address2": "Not Found",
+      "state": "Dnipro",
+      "email": "pretty-rob@gmail.com",
       "zip": 665775859,
       "city": "New Alexandrivka"
     }
