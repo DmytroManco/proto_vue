@@ -2,7 +2,7 @@
     <div class="bar">
       <div
         class="bar-item"
-        v-for="(procedure, index) in procedures"
+        v-for="(procedure, index) in this.$store.getters.getProceduresList"
         :key="index"
       >
         {{procedure.title}}
@@ -13,13 +13,12 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { IProcedure } from '@/interfaces/procedure.d';
+import { ProcedureI } from '@/interfaces/procedure.d';
 
 @Component({
   name: 'patient-procedure-bar',
 })
 export default class PatientProcedureBar extends Vue {
-  @Prop() procedures!: IProcedure[];
 }
 </script>
 

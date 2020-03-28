@@ -33,7 +33,7 @@ export const PatientsStore: Module<PatientsStateI, any> = {
         method: 'PUT',
         body: JSON.stringify(patient),
         headers: new Headers({
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         }),
       });
       const response = await request.json();
