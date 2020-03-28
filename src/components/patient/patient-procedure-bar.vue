@@ -13,13 +13,13 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { IProcedure } from '@/interfaces/procedure.d';
+import { ProcedureI } from '@/interfaces/procedure.d';
 
 @Component({
   name: 'patient-procedure-bar',
 })
 export default class PatientProcedureBar extends Vue {
-  @Prop() procedures!: IProcedure[];
+  @Prop() procedures!: ProcedureI[];
 }
 </script>
 
