@@ -24,5 +24,32 @@
       "zip": 665775859,
       "city": "New Alexandrivka"
     }
+  ],
+  "procedures": [
+    {
+      "id": "12345678",
+      "title": "Procedure 1",
+      "amount": 10
+    },
+    {
+      "id": "12345678",
+      "title": "Procedure 3",
+      "amount": 1
+    },
+    {
+      "id": "12345678",
+      "title": "Procedure 3",
+      "amount": 2
+    },
+    {
+      "id": "87654321",
+      "title": "Procedure For Rob",
+      "amount": 2
+    },
+    {
+      "id": "87654321",
+      "title": "Procedure 2 For Rob",
+      "amount": 4
+    }
   ]
 }
