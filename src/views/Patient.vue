@@ -18,6 +18,7 @@ export default class Patient extends Vue {
   created() {
     const patientID = this.$route.params.id;
     this.$store.dispatch('getPatient', patientID);
+    this.$store.dispatch('getPatientProceduresList', patientID);
   }
 }
 </script>
