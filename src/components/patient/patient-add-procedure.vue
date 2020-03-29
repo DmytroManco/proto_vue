@@ -2,26 +2,26 @@
   <div>
     <h3>Add Procedure</h3>
     <form
-      class="form"
+      class="form add-procedure"
       @submit="submitForm($event)"
     >
       <div class="form-row">
-        <label>
+        <label class="form-label">
           Title <br>
           <input type="text">
         </label>
-        <label>
+        <label class="form-label">
           Date <br>
           <input type="date">
         </label>
       </div>
       <div class="form-row">
-        <label>
+        <label class="form-label">
           Provider <br>
           <input type="text"></label>
       </div>
       <div class="form-row">
-        <label>
+        <label class="form-label">
           Status <br>
           <select>
             <option value="completed">Completed</option>
@@ -36,13 +36,13 @@
         </label>
       </div>
       <div class="form-row">
-        <label>
+        <label class="form-label">
           Amount <br>
           <input type="number">
         </label>
       </div>
       <div class="form-row">
-        <label>
+        <label class="form-label">
           Note <br>
           <textarea cols="30" rows="10"></textarea>
         </label>
@@ -65,11 +65,14 @@ import { Vue, Component } from 'vue-property-decorator';
 })
 export default class PatientAddProcedure extends Vue {
   submitForm(event: InputEvent) {
+    console.log(this.$store);
     event.preventDefault();
   }
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  .add-procedure {
+    width: 50%;
+  }
 </style>
