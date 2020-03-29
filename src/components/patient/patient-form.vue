@@ -72,30 +72,7 @@ export default class PatientForm extends Vue {
 </script>
 
 <style lang="scss" scoped>
-  .form-row {
-    display: flex;
-    margin-bottom: 15px;
-  }
-  .form-label {
-    flex: 1;
-    margin-right: 15px;
-    font-size: 14px;
-    text-indent: 5px;
-    input {
-      width: 100%;
-      margin-top: 5px;
-      border-radius: 5px;
-      padding: 5px 10px;
-      box-sizing: border-box;
-      border: 1px solid $lightGray;
-    }
-  }
   .btn-primary.form-submit-btn {
     margin-top: 10px;
-    color: $white;
-    background: $blue;
-    border-radius: 5px;
-    padding: 5px;
-    border: none;
   }
 </style>

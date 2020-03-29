@@ -36,14 +36,8 @@ export default class SearchComponent extends Vue {
       border: none;
     }
     &__btn {
-      outline: none;
       margin: 0 10px;
       padding: 5px 10px;
-      border: 1px solid $blue;
-      color: $blue;
-      border-radius: 10px;
-      background: transparent;
-      cursor: pointer;
     }
   }
 </style>

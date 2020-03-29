@@ -55,7 +55,7 @@ export default class Patient extends Vue {
       border-bottom: transparent;
       border-radius: 4px 4px 0 0;
       margin-bottom: -1px;
-      background-color: #fff;
+      background-color: $white;
     }
   }
 </style>
