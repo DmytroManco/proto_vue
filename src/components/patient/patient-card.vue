@@ -52,11 +52,7 @@ export default class PatientCard extends Vue {
       margin-bottom: 5px;
     }
   }
-  .card__goto {
+  .btn-primary.card__goto {
     padding: 10px 25px;
-    color: $white;
-    background: $blue;
-    border-radius: 5px;
-    border: 0;
   }
 </style>
