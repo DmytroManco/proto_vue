@@ -8,22 +8,26 @@
       <div class="form-row">
         <label class="form-label">
           Title <br>
-          <input type="text">
+          <input
+            type="text"
+            v-model.lazy="model.title"
+            required
+          >
         </label>
         <label class="form-label">
           Date <br>
-          <input type="date">
+          <input type="date" v-model="model.date">
         </label>
       </div>
       <div class="form-row">
         <label class="form-label">
           Provider <br>
-          <input type="text"></label>
+          <input type="text" v-model="model.provider"></label>
       </div>
       <div class="form-row">
         <label class="form-label">
           Status <br>
-          <select>
+          <select v-model="model.status">
             <option value="completed">Completed</option>
             <option value="not-started">Not Started</option>
           </select>
@@ -32,19 +36,23 @@
       <div class="form-checkbox">
         <label>
           Bill to insurance
-          <input type="checkbox">
+          <input type="checkbox" v-model="model.insuranceCovered">
         </label>
       </div>
       <div class="form-row">
         <label class="form-label">
           Amount <br>
-          <input type="number">
+          <input
+            type="number"
+            min="1"
+            max="10"
+            v-model.number="model.amount">
         </label>
       </div>
       <div class="form-row">
         <label class="form-label">
           Note <br>
-          <textarea cols="30" rows="10"></textarea>
+          <textarea cols="30" rows="10" v-model="model.notes"></textarea>
         </label>
       </div>
       <button
@@ -59,14 +67,60 @@
 
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
+import PatientAddProcedureModel from '@/models/patient-add-procedure.model';
+import { ProcedureI } from '@/interfaces/procedure.d';
 
 @Component({
   name: 'patient-add-procedure',
 })
 export default class PatientAddProcedure extends Vue {
-  submitForm(event: InputEvent) {
-    console.log(this.$store);
+  model: ProcedureI;
+
+  constructor() {
+    super();
+    this.model = new PatientAddProcedureModel();
+  }
+
+  submitForm(event: HTMLFormElement): void {
     event.preventDefault();
+
+    if (!this.model.title || !this.model.provider) {
+      return;
+    }
+
+    let procedures = [...this.$store.getters.getProceduresList];
+    const index = this.isProcedureExists(this.model);
+
+    if (index > 0) {
+      procedures[index] = this.updateExisting(procedures[index]);
+    }
+
+    procedures = index > 0 ? procedures : [...procedures, this.model];
+
+    const payload = {
+      userID: this.$store.getters.getCurrentPatient.id,
+      procedures,
+    };
+
+    this.$store.dispatch('addPatientProcedure', payload);
+    (event.target as unknown as HTMLFormElement).reset();
+  }
+
+  private isProcedureExists(procedure: ProcedureI): number {
+    return this.$store.getters.getProceduresList
+      .findIndex((proc: ProcedureI) => proc.title === procedure.title
+        && proc.provider === procedure.provider);
+  }
+
+  private updateExisting(procedure: ProcedureI): ProcedureI {
+    return {
+      ...procedure,
+      amount: procedure.amount + this.model.amount,
+      date: this.model.date || procedure.date,
+      status: this.model.status || procedure.status,
+      notes: this.model.notes,
+      insuranceCovered: this.model.insuranceCovered,
+    };
   }
 }
 </script>
