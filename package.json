@@ -51,7 +51,9 @@
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {},
+    "rules": {
+      "import/prefer-default-export": 0
+    },
     "overrides": [
       {
         "files": [

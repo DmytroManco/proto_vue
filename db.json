@@ -31,15 +31,30 @@
       "procedures": [
         {
           "title": "Procedure 1",
-          "amount": 10
+          "amount": 10,
+          "date": "2020-04-01",
+          "provider": "Provider 1",
+          "status": "Not Started",
+          "insuranceCovered": true,
+          "notes": "Some Notes"
         },
         {
           "title": "Procedure 3",
-          "amount": 1
+          "amount": 1,
+          "date": "2020-04-02",
+          "provider": "Provider 2",
+          "status": "Not Started",
+          "insuranceCovered": true,
+          "notes": "Notes"
         },
         {
           "title": "Procedure 3",
-          "amount": 2
+          "amount": 2,
+          "date": "2020-04-02",
+          "provider": "Provider 3",
+          "status": "Started",
+          "insuranceCovered": false,
+          "notes": "Just Started"
         }
       ]
     },
@@ -48,11 +63,21 @@
       "procedures": [
         {
           "title": "Procedure For Rob",
-          "amount": 2
+          "amount": 2,
+          "date": "2020-03-29",
+          "provider": "Some Provider",
+          "status": "Not Started",
+          "insuranceCovered": false,
+          "notes": "Some Notes"
         },
         {
           "title": "Procedure 2 For Rob",
-          "amount": 4
+          "amount": 4,
+          "date": "2020-02-29",
+          "provider": "Some Provider",
+          "status": "Completed",
+          "insuranceCovered": false,
+          "notes": "Some Notes"
         }
       ]
     }
