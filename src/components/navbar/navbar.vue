@@ -15,7 +15,10 @@
       </ul>
     </nav>
     <div class="navbar__search search">
-      <search-component></search-component>
+      <search-component
+        :options="searchOptions"
+        v-on:search="searchAction">
+      </search-component>
     </div>
   </div>
 </template>
@@ -25,6 +28,8 @@
 import { Component, Prop, Vue } from 'vue-property-decorator';
 import { NavItemI } from '@/interfaces/navitem.d';
 import SearchComponent from '@/shared/search/search-component.vue';
+import { PATIENT_SEARCH_CONSTANT } from '@/constants/search.constants';
+import { SearchActionInterface, SearchInterface } from '@/interfaces/search.d';
 
 @Component({
   name: 'navbar',
@@ -32,6 +37,17 @@ import SearchComponent from '@/shared/search/search-component.vue';
 })
 export default class Navbar extends Vue {
   @Prop() private navItems!: NavItemI[];
+
+  searchOptions: SearchInterface;
+
+  constructor() {
+    super();
+    this.searchOptions = PATIENT_SEARCH_CONSTANT;
+  }
+
+  searchAction(action: SearchActionInterface) {
+    this.$store.dispatch(action.actionName, action.query);
+  }
 }
 
 </script>
