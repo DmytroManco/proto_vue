@@ -102,7 +102,7 @@ export default class PatientAddProcedure extends Vue {
       procedures,
     };
 
-    this.$store.dispatch('addPatientProcedure', payload);
+    this.$store.dispatch('updatePatientProcedures', payload);
     (event.target as unknown as HTMLFormElement).reset();
   }
 

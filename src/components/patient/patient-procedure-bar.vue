@@ -13,7 +13,6 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { ProcedureI } from '@/interfaces/procedure.d';
 
 @Component({
   name: 'patient-procedure-bar',
