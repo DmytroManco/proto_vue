@@ -9,7 +9,7 @@
     <div class="card__actions">
       <button
         class="btn btn-primary card__goto"
-        v-on:click="navigate()"
+        v-on:click="navigate"
       >
         Review
       </button>
@@ -20,6 +20,7 @@
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import { PatientI } from '@/interfaces/patient.d';
+import { ROUTES_NAMES } from '@/constants/routes.constant';
 
 @Component({
   name: 'patient-card',
@@ -28,7 +29,7 @@ export default class PatientCard extends Vue {
   @Prop() patient!: PatientI;
 
   public navigate(): void {
-    this.$router.push({ name: 'patientInfo', params: { id: this.patient.id } });
+    this.$router.push({ name: ROUTES_NAMES.PatientInfo, params: { id: this.patient.id } });
   }
 }
 </script>
