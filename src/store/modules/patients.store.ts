@@ -39,6 +39,11 @@ export const PatientsStore: Module<PatientsStateI, any> = {
       const response = await request.json();
       commit('setCurrentPatient', response);
     },
+    async patientsServerSearch({ commit }, query: string) {
+      const response = await fetch(`${BASE_PATIENT_API}?q=${query}`);
+      const patients = await response.json();
+      commit('setPatientsToStore', patients);
+    },
   },
   mutations: {
     setPatientsToStore: (state, patients) => { state.patients = patients; },
