@@ -20,7 +20,7 @@ export const ProceduresStore: Module<ProcedureStateI, any> = {
       const procedures = await response.json();
       commit('setProceduresList', procedures.procedures);
     },
-    async addPatientProcedure({ commit }, payload) {
+    async updatePatientProcedures({ commit }, payload) {
       const request = await fetch(`${BASE_PROCEDURES_API}/${payload.userID}`, {
         method: 'PUT',
         body: JSON.stringify({

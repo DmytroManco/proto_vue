@@ -27,10 +27,10 @@ import { Component, Vue } from 'vue-property-decorator';
   name: 'patient',
 })
 export default class Patient extends Vue {
-  created() {
+  async created(): Promise<void> {
     const patientID = this.$route.params.id;
-    this.$store.dispatch('getPatient', patientID);
-    this.$store.dispatch('getPatientProceduresList', patientID);
+    await this.$store.dispatch('getPatient', patientID);
+    await this.$store.dispatch('getPatientProceduresList', patientID);
   }
 }
 </script>

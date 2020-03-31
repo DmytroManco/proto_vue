@@ -63,7 +63,7 @@ export default class PatientForm extends Vue {
     return new PatientFormModel(this.$store.getters.getCurrentPatient);
   }
 
-  submitForm(event: InputEvent) {
+  submitForm(event: InputEvent): void {
     const updatedPatient = Object.assign(this.$store.getters.getCurrentPatient, this.model);
     this.$store.dispatch('updatePatientInfo', updatedPatient);
     event.preventDefault();
