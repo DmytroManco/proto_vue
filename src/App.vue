@@ -19,8 +19,8 @@
 </style>
 <script lang="ts">
 
-import Navbar from '@/components/navbar/navbar.vue';
 import { Component, Vue } from 'vue-property-decorator';
+import Navbar from '@/components/navbar/navbar.vue';
 import RouteConstants from '@/constants/routes.constant';
 
   @Component({

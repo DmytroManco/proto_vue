@@ -8,7 +8,7 @@
           v-for="(item, index) in navItems"
           :key="index"
         >
-          <router-link :to="item.path" exact>
+          <router-link :to="{name: item.name}" exact>
             {{item.title}}
           </router-link>
         </li>
