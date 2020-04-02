@@ -92,7 +92,7 @@ export default class PatientForm extends Vue {
   }
 
   onError(error: FormControlErrorInterface): void {
-    this.disableSubmit = !!error;
+    this.disableSubmit = !!error.error;
   }
 }
 </script>
