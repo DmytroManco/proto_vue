@@ -1,3 +1,3 @@
-export interface InputOptionsInterface {
-  required: boolean;
+export interface FormControlErrorInterface {
+  error: string | null;
 }
