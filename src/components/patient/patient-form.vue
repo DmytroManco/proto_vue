@@ -16,7 +16,13 @@
     <div class="form-row">
       <label class="form-label">
         Address <br>
-        <input type="text" placeholder="Address" v-model="model.address">
+        <input-text
+          placeholder="Address"
+          v-model="model.address"
+          :required="true"
+          v-on:formError="onError"
+        >
+        </input-text>
       </label>
     </div>
     <div class="form-row">
@@ -42,7 +48,13 @@
     <label class="form-checkbox">
       <input type="checkbox"> Garantor
     </label> <br>
-    <button type="submit" class="btn btn-primary form-submit-btn">Update</button>
+    <button
+      type="submit"
+      class="btn btn-primary form-submit-btn"
+      :disabled="disableSubmit"
+    >
+      Update
+    </button>
   </form>
 </template>
 
@@ -50,11 +62,21 @@
 import { Vue, Component } from 'vue-property-decorator';
 
 import { PatientFormModel } from '@/models/patient-form.model';
+import InputText from '@/shared/form-components/input-text.vue';
+import { FormControlErrorInterface } from '@/interfaces/form-controls.d';
 
 @Component({
   name: 'patient-form',
+  components: { InputText },
 })
 export default class PatientForm extends Vue {
+  disableSubmit!: boolean;
+
+  constructor() {
+    super();
+    this.disableSubmit = !!this.model;
+  }
+
   get model() {
     if (!this.$store.getters.getCurrentPatient) {
       return null;
@@ -67,6 +89,10 @@ export default class PatientForm extends Vue {
     const updatedPatient = Object.assign(this.$store.getters.getCurrentPatient, this.model);
     this.$store.dispatch('updatePatientInfo', updatedPatient);
     event.preventDefault();
+  }
+
+  onError(error: FormControlErrorInterface): void {
+    this.disableSubmit = !!error;
   }
 }
 </script>
