@@ -13,7 +13,7 @@
       v-if="options.isSearchButton"
       v-on:click="onSearch"
     >
-      {{options.searchButtonText}}
+      <slot>Search</slot>
     </button>
   </div>
 </template>
