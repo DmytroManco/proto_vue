@@ -25,11 +25,14 @@
 
 <script lang="ts">
 
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import {
+  Component, Prop, Vue,
+} from 'vue-property-decorator';
 import { NavItemI } from '@/interfaces/navitem.d';
 import SearchComponent from '@/shared/search/search-component.vue';
 import { PATIENT_SEARCH_CONSTANT } from '@/constants/search.constants';
 import { SearchActionInterface, SearchInterface } from '@/interfaces/search.d';
+import { ROUTES_NAMES } from '@/constants/routes.constant';
 
 @Component({
   name: 'navbar',
@@ -45,8 +48,12 @@ export default class Navbar extends Vue {
     this.searchOptions = PATIENT_SEARCH_CONSTANT;
   }
 
-  searchAction(action: SearchActionInterface) {
-    this.$store.dispatch(action.actionName, action.query);
+  async searchAction(action: SearchActionInterface) {
+    if (ROUTES_NAMES.Home !== this.$route.name) {
+      await this.$router.push({ name: ROUTES_NAMES.Home });
+    }
+
+    await this.$store.dispatch(action.actionName, action.query);
   }
 }
 
