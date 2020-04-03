@@ -18,6 +18,7 @@
       <search-component
         :options="searchOptions"
         v-on:search="searchAction">
+        {{searchOptions.searchButtonText}}
       </search-component>
     </div>
   </div>

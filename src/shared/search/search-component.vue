@@ -13,7 +13,7 @@
       v-if="options.isSearchButton"
       v-on:click="onSearch"
     >
-      {{options.searchButtonText}}
+      <slot>Search</slot>
     </button>
   </div>
 </template>
@@ -30,12 +30,24 @@ export default class SearchComponent extends Vue {
 
   @Prop() options!: SearchInterface;
 
+  private appliedQuery: string;
+
+  constructor() {
+    super();
+    this.appliedQuery = this.searchQuery;
+  }
+
   onSearch(): void {
+    if (this.appliedQuery === this.searchQuery) {
+      return;
+    }
+
     const action: SearchActionInterface = {
       actionName: this.options.action.actionName,
       query: this.searchQuery,
     };
     this.$emit('search', action);
+    this.appliedQuery = this.searchQuery;
   }
 }
 
