@@ -1,20 +1,10 @@
 import { shallowMount, Wrapper } from '@vue/test-utils';
 import { RouterLinkStub } from '@vue/test-utils';
+
 import Navbar from '@/components/navbar/navbar.vue';
 import RouteConstants from '@/constants/routes.constant';
-import {SearchActionInterface} from "@/interfaces/search";
-
-const $route = {
-  name: '/some/path',
-};
-
-const $router = {
-  push: jest.fn(),
-};
-
-const $store = {
-  dispatch: jest.fn(),
-};
+import { SearchActionInterface } from '@/interfaces/search';
+import { $route, $router, $store } from "@/tests/mocks/ut-moks";
 
 describe('navbar.vue', () => {
   let wrapper: Wrapper<any>;
