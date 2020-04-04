@@ -17,7 +17,7 @@
     <div class="navbar__search search">
       <search-component
         :options="searchOptions"
-        v-on:search="searchAction">
+        v-on:search="search">
         {{searchOptions.searchButtonText}}
       </search-component>
     </div>
@@ -49,7 +49,7 @@ export default class Navbar extends Vue {
     this.searchOptions = PATIENT_SEARCH_CONSTANT;
   }
 
-  async searchAction(action: SearchActionInterface) {
+  async search(action: SearchActionInterface) {
     if (ROUTES_NAMES.Home !== this.$route.name) {
       await this.$router.push({ name: ROUTES_NAMES.Home });
     }
