@@ -21,7 +21,7 @@
 
 import { Component, Vue } from 'vue-property-decorator';
 import Navbar from '@/components/navbar/navbar.vue';
-import RouteConstants from '@/constants/routes.constant';
+import { NAV_ROUTES } from '@/constants/routes.constant';
 
   @Component({
     components: {
@@ -29,6 +29,6 @@ import RouteConstants from '@/constants/routes.constant';
     },
   })
 export default class App extends Vue {
-  public routes = RouteConstants.NAV_ROUTES;
+  public routes = NAV_ROUTES;
 }
 </script>

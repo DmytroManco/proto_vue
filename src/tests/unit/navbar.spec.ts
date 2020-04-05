@@ -1,17 +1,17 @@
-import { shallowMount, Wrapper } from '@vue/test-utils';
-import { RouterLinkStub } from '@vue/test-utils';
+import { shallowMount, Wrapper, RouterLinkStub } from '@vue/test-utils';
+
 
 import Navbar from '@/components/navbar/navbar.vue';
-import RouteConstants from '@/constants/routes.constant';
-import { SearchActionInterface } from '@/interfaces/search';
-import { $route, $router, $store } from "@/tests/mocks/ut-moks";
+import { ROUTES_NAMES, NAV_ROUTES } from '@/constants/routes.constant';
+import { SearchActionInterface } from '@/interfaces/search.d';
+import { $route, $router, $store } from '@/tests/mocks/ut-moks';
 
 describe('navbar.vue', () => {
   let wrapper: Wrapper<any>;
   let action: SearchActionInterface;
   beforeEach(() => {
     wrapper = shallowMount(Navbar, {
-      propsData: { navItems: RouteConstants.NAV_ROUTES},
+      propsData: { navItems: NAV_ROUTES },
       stubs: {
         RouterLink: RouterLinkStub,
       },
@@ -30,7 +30,8 @@ describe('navbar.vue', () => {
   describe('#search', () => {
     it('should redirect on home Route', () => {
       wrapper.vm.search(action);
-      expect(wrapper.vm.$router.push).toHaveBeenCalledWith({ name: RouteConstants.ROUTES_NAMES.Home });
+      expect(wrapper.vm.$router.push)
+        .toHaveBeenCalledWith({ name: ROUTES_NAMES.Home });
     });
 
     it('should dispatch search action', async () => {
