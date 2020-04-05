@@ -19,14 +19,14 @@
 
 <script lang="ts">
 import { Vue, Component, Prop } from 'vue-property-decorator';
-import { PatientI } from '@/interfaces/patient.d';
+import { PatientInterface } from '@/interfaces/patient.d';
 import { ROUTES_NAMES } from '@/constants/routes.constant';
 
 @Component({
   name: 'patient-card',
 })
 export default class PatientCard extends Vue {
-  @Prop() patient!: PatientI;
+  @Prop() patient!: PatientInterface;
 
   public navigate(): void {
     this.$router.push({ name: ROUTES_NAMES.PatientInfo, params: { id: this.patient.id } });

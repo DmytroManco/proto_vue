@@ -1,4 +1,4 @@
-import { PatientI } from '@/interfaces/patient.d';
+import { PatientInterface } from '@/interfaces/patient.d';
 
 export class PatientFormModel {
   id: string;
@@ -18,7 +18,7 @@ export class PatientFormModel {
   zip: number;
 
   // TODO: default values only for dev purposes
-  constructor(patient: PatientI = {} as PatientI) {
+  constructor(patient: PatientInterface = {} as PatientInterface) {
     this.id = patient.id || '';
     this.email = patient.email || '';
     this.phone = patient.phone || '';
