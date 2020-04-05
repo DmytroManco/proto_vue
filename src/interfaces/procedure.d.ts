@@ -1,4 +1,4 @@
-export interface ProcedureI {
+export interface ProcedureInterface {
   title: string;
   amount: number;
   date: string;

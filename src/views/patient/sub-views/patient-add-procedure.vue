@@ -68,13 +68,13 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator';
 import PatientAddProcedureModel from '@/models/patient-add-procedure.model';
-import { ProcedureI } from '@/interfaces/procedure.d';
+import { ProcedureInterface } from '@/interfaces/procedure.d';
 
 @Component({
   name: 'patient-add-procedure',
 })
 export default class PatientAddProcedure extends Vue {
-  model: ProcedureI;
+  model: ProcedureInterface;
 
   constructor() {
     super();
@@ -106,13 +106,13 @@ export default class PatientAddProcedure extends Vue {
     (event.target as unknown as HTMLFormElement).reset();
   }
 
-  private isProcedureExists(procedure: ProcedureI): number {
+  private isProcedureExists(procedure: ProcedureInterface): number {
     return this.$store.getters.getProceduresList
-      .findIndex((proc: ProcedureI) => proc.title === procedure.title
+      .findIndex((proc: ProcedureInterface) => proc.title === procedure.title
         && proc.provider === procedure.provider);
   }
 
-  private updateExisting(procedure: ProcedureI): ProcedureI {
+  private updateExisting(procedure: ProcedureInterface): ProcedureInterface {
     return {
       ...procedure,
       amount: procedure.amount + this.model.amount,
