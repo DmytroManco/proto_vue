@@ -7,12 +7,7 @@ export enum ROUTES_NAMES {
   AddProcedure = 'addProcedure',
 }
 
-const NAV_ROUTES: NavItemI[] = [
+export const NAV_ROUTES: NavItemI[] = [
   { title: 'Home', path: '/', name: ROUTES_NAMES.Home },
   { title: 'Patients', path: 'patients', name: ROUTES_NAMES.Patients },
 ];
-
-export default {
-  NAV_ROUTES,
-  ROUTES_NAMES,
-};
