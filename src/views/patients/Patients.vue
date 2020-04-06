@@ -1,7 +1,11 @@
 <template>
   <div class="patients">
     <h1>This is a Patients page</h1>
-    <tabs :tabs="tabs"></tabs>
+    <tabs
+      :tabs="tabs"
+      :events="['search']"
+    >
+    </tabs>
   </div>
 </template>
 <script lang="ts">
