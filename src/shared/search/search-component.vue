@@ -4,13 +4,13 @@
       <input
         class="search__input"
         type="text"
-        :placeholder="options.placeholder"
+        :placeholder="options ? options.placeholder : ''"
         v-model="searchQuery"
       >
     </label>
     <button
       class="btn btn-default search__btn"
-      v-if="options.isSearchButton"
+      v-if="options && options.isSearchButton"
       v-on:click="onSearch"
     >
       <slot>Search</slot>
