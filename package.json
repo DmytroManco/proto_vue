@@ -52,7 +52,8 @@
       "ecmaVersion": 2020
     },
     "rules": {
-      "import/prefer-default-export": 0
+      "import/prefer-default-export": 0,
+      "prefer-destructuring": ["error", {"object": true, "array": false}]
     },
     "overrides": [
       {
