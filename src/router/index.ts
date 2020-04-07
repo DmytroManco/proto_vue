@@ -34,6 +34,11 @@ const routes = [
       },
     ],
   },
+  {
+    path: '/forms',
+    name: ROUTES_NAMES.Forms,
+    component: () => import('../views/forms/Form.vue'),
+  },
 ];
 
 const router = new VueRouter({
