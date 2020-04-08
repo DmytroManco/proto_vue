@@ -79,6 +79,7 @@ import {
   email,
   helpers,
 } from 'vuelidate/lib/validators';
+import { DemoFormModel } from '@/models/demo-form.model';
 
 const requiredWithParams = helpers.withParams(
   { type: 'required', msg: 'Custom Error Message From $param' },
@@ -101,10 +102,7 @@ const requiredWithParams = helpers.withParams(
   },
 })
 export default class VuelidateForm extends mixins(validationMixin) {
-  model = {
-    name: '',
-    email: '',
-  };
+  model = new DemoFormModel();
 
   submitForm(): void {
     console.log(this.$v.$invalid);
