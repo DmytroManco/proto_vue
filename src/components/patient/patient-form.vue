@@ -70,12 +70,7 @@ import { FormControlErrorInterface } from '@/interfaces/form-controls.d';
   components: { InputText },
 })
 export default class PatientForm extends Vue {
-  disableSubmit!: boolean;
-
-  constructor() {
-    super();
-    this.disableSubmit = !!this.model;
-  }
+  disableSubmit = false;
 
   get model() {
     if (!this.$store.getters.getCurrentPatient) {
