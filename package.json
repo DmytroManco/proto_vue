@@ -64,7 +64,8 @@
           "object": true,
           "array": false
         }
-      ]
+      ],
+      "lines-between-class-members": 0
     },
     "overrides": [
       {
