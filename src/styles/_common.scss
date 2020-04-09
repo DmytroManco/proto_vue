@@ -18,6 +18,14 @@
     box-sizing: border-box;
     border: 1px solid $lightGray;
   }
+  input.invalid {
+    border: 1px solid $red;
+    margin-bottom: 3px;
+  }
+  .error-massage {
+    color: red;
+    padding: 5px;
+  }
 }
 
 // MIXINS

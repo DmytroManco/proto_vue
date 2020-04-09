@@ -26,13 +26,20 @@ import {
 import SearchComponent from '@/shared/search/search-component.vue';
 import TestComponent from '@/shared/test-conponents/test.vue';
 import { HandleEventDirective } from '@/directives/handle-event.directive';
+import VanillaForm from '@/components/form-demo/vanilla-form.vue';
+import VuelidateForm from '@/components/form-demo/vuelidate-form.vue';
+import VeeValidateForm from '@/components/form-demo/vee-validate-form.vue';
 import { Tab } from './tab.d';
 
+// TODO: async load needed component
 @Component({
   name: 'tabs',
   components: {
     SearchComponent,
     test: TestComponent,
+    VanillaForm,
+    VuelidateForm,
+    VeeValidateForm,
   },
   directives: {
     eventHandler: HandleEventDirective,

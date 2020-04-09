@@ -1,4 +1,4 @@
-import { PatientInterface } from '@/interfaces/patient';
+import { PatientInterface } from '@/interfaces/patient.d';
 
 export interface PatientsStateInterface {
   patients: PatientInterface [];
