@@ -1,13 +1,9 @@
 export class DemoFormModel {
   name: string;
-
   email: string;
-
   rules: Record<string, string>;
-
   // TODO: for demo propose
   options: string;
-
   additionalControls: Record<string, string | number>;
 
   constructor(

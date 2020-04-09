@@ -47,11 +47,9 @@ import { Tab } from './tab.d';
 })
 export default class TabsComponent extends Vue {
   currentTab: Tab | null = null;
-
   eventHandler: any = null;
 
   @Prop() tabs!: Tab[];
-
   @Prop() events!: string[];
 
   mounted(): void {
