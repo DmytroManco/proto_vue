@@ -1,13 +1,15 @@
 <template>
   <div class="tabs" v-if="!!currentTab">
-    <button
-      v-for="tab in tabs"
-      v-bind:class="['tab-button', { active: currentTab.title === tab.title }]"
-      v-bind:key="tab.title"
-      @click="currentTab = tab"
-    >
-      {{tab.title}}
-    </button>
+    <div class="tabs__controls">
+      <span
+        v-for="tab in tabs"
+        v-bind:class="['tab-button', { active: currentTab.title === tab.title }]"
+        v-bind:key="tab.title"
+        @click="currentTab = tab"
+      >
+        {{tab.title}}
+      </span>
+    </div>
 
     <component
       v-bind:is="currentTab.component"
@@ -45,11 +47,9 @@ import { Tab } from './tab.d';
 })
 export default class TabsComponent extends Vue {
   currentTab: Tab | null = null;
-
   eventHandler: any = null;
 
   @Prop() tabs!: Tab[];
-
   @Prop() events!: string[];
 
   mounted(): void {
@@ -66,6 +66,24 @@ export default class TabsComponent extends Vue {
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  .tabs__controls {
+    display: flex;
+  }
+  .tab-button {
+    padding: 10px 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.54);
+    &:hover {
+    background: rgba(0, 0, 0, 0.14);
+    }
+  }
+  .tab-button.active {
+    color: $blue;
+    border-bottom: 2px solid $blue;
+  }
 </style>

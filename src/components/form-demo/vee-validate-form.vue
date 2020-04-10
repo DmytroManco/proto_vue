@@ -147,9 +147,7 @@ extend('max', {
 })
 export default class VeeValidateForm extends Vue {
   model = new DemoFormModel();
-
   showAdditional = false;
-
   showAdditionalControls = false;
 
   submitForm(): void {
