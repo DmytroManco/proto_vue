@@ -5,6 +5,13 @@
   display: flex;
   margin-bottom: 15px;
 }
+// TODO: refactor
+.form-row > span{
+  flex: 1;
+  margin-right: 15px;
+  font-size: 14px;
+  text-indent: 5px;
+}
 .form-label {
   flex: 1;
   margin-right: 15px;
