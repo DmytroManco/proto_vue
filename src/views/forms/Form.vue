@@ -20,10 +20,6 @@ import TabsComponent from '@/shared/tabs/tabs.vue';
 export default class FormView extends Vue {
   tabs: Tab[] = [
     {
-      title: 'Custom',
-      component: 'vanilla-form',
-    },
-    {
       title: 'Vuelidate',
       component: 'vuelidate-form',
     },
