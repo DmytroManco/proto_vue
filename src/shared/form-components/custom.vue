@@ -23,6 +23,7 @@ import { Vue, Prop, Component } from 'vue-property-decorator';
 import { ValidationProvider } from 'vee-validate';
 
 @Component({
+  name: 'custom-input',
   components: {
     ValidationProvider,
   },

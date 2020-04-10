@@ -1,5 +1,5 @@
 <template>
-  <div>
+<div>
     <h3>Vee Form Elements</h3>
     <validation-observer ref="form" v-slot="{ invalid }">
       <form
@@ -8,35 +8,20 @@
       >
         <!-- .form-row -->
         <div class="form-row">
-          <label class="form-label">
-            Name <br>
-            <validation-provider
-              :rules="model.getRules('name')"
-              v-slot="v">
-              <input
-                key="name"
-                type="text"
-                placeholder="Name"
-                :class="(v.invalid && v.dirty) ? 'invalid' : 'valid'"
-                v-model="model.name"
-              >
-              <span class="error-massage">{{ v.errors[0] }}</span>
-            </validation-provider>
-          </label>
-          <label class="form-label">
-            Email <br>
-            <validation-provider
-              :rules="model.getRules('email')"
-              v-slot="v">
-              <input
-                key="email"
-                type="text"
-                placeholder="Email"
-                v-model="model.email"
-              >
-              <span class="error-massage">{{ v.errors[0] }}</span>
-            </validation-provider>
-          </label>
+          <custom-input
+            :rules="model.getRules('name')"
+            :inputKey="'name'"
+            v-model="model.name"
+          >
+            Name
+          </custom-input>
+          <custom-input
+            :rules="model.getRules('email')"
+            :inputKey="'email'"
+            v-model="model.email"
+          >
+            Email
+          </custom-input>
         </div>
         <!-- end .form-row -->
         <!-- .add-validators -->
@@ -44,26 +29,26 @@
           <h4>Add Validation To Filed Name</h4>
           <label>
             BuiltIn (Max)
-            <input type="checkbox" @change="addBuiltInValidator">
+            <input
+              type="checkbox"
+              @change="addBuiltInValidator">
           </label>
           <label>
             Custom Validators
-            <input type="checkbox" @change="addCustomValidator">
+            <input
+              type="checkbox"
+              @change="addCustomValidator">
           </label>
         </div>
         <!-- end .add-validators -->
         <div class="form-row" v-if="showAdditional">
-          <validation-provider rules="required" v-slot="v">
-            <label class="form-label">
-              Additional Control <br>
-              <input
-                key="options"
-                type="text"
-                v-model="model.options"
-              >
-              <span class="error-massage">{{ v.errors[0] }}</span>
-            </label>
-          </validation-provider>
+          <custom-input
+            rules="required"
+            :inputKey="'oprions'"
+            v-model="model.options"
+          >
+            Additional Control
+          </custom-input>
         </div>
         <div v-if="showAdditionalControls">
           <div
@@ -71,20 +56,13 @@
             v-for="(value, property) in model.additionalControls"
             :key="property"
           >
-            <label class="form-label">
-              {{property}} <br>
-              <validation-provider
-                rules="required"
-                v-slot="v">
-                <input
-                  :key="'user-'+ property"
-                  type="text"
-                  :placeholder="property"
-                  v-model="model.additionalControls[property]"
-                >
-                <span class="error-massage">{{ v.errors[0] }}</span>
-              </validation-provider>
-            </label>
+            <custom-input
+              rules="required"
+              :inputKey="'user-'+ property"
+              v-model="model.additionalControls[property]"
+            >
+              {{property}}
+            </custom-input>
           </div>
         </div>
         <div class="add-inputs">
@@ -121,6 +99,7 @@ import {
   required, email, min, max,
 } from 'vee-validate/dist/rules';
 import validationMessages from 'vee-validate/dist/locale/uk.json';
+import CustomInput from '@/shared/form-components/custom.vue';
 
 extend('required', {
   ...required,
@@ -142,7 +121,7 @@ extend('max', {
   name: 'vee-validate-form',
   components: {
     ValidationObserver,
-    ValidationProvider,
+    CustomInput,
   },
 })
 export default class VeeValidateForm extends Vue {
