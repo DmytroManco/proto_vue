@@ -61,3 +61,9 @@
 .btn-primary {
   @include button(5px, $white, $blue, none, 5px);
 }
+
+// TODO: remove
+// HEADING
+h1, h3 {
+  padding: 1rem 0;
+}
