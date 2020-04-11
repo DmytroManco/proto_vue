@@ -61,6 +61,7 @@ export default class SearchComponent extends Vue {
       padding: 5px 10px;
       border-radius: 3px;
       border: none;
+      background: $white;
     }
     &__btn {
       margin: 0 10px;
