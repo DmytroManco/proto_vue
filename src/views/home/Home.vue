@@ -2,7 +2,7 @@
   <div class="home">
     <div class="patient-list">
       <patient-card
-        v-for="(patient, index) in this.$store.getters.getPatientList"
+        v-for="(patient, index) in this.$store.state.PatientsStore.patients"
         :key="index"
         :patient="patient">
       </patient-card>
@@ -21,7 +21,7 @@ import { Vue, Component } from 'vue-property-decorator';
 })
 export default class Home extends Vue {
   mounted() {
-    this.$store.dispatch('getPatients');
+    this.$store.dispatch('PatientsStore/getPatients');
   }
 }
 </script>

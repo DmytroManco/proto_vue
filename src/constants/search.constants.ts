@@ -6,7 +6,7 @@ export const PATIENT_SEARCH_CONSTANT: SearchInterface = {
   isSearchButton: true,
   searchButtonText: 'Search',
   action: {
-    actionName: 'patientsServerSearch',
+    actionName: 'PatientsStore/patientsServerSearch',
     query: '',
   },
 };

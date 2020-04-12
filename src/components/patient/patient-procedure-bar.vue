@@ -2,7 +2,7 @@
     <div class="bar">
       <div
         class="bar-item"
-        v-for="(procedure, index) in this.$store.getters.getProceduresList"
+        v-for="(procedure, index) in this.$store.state.ProceduresStore.procedures"
         :key="index"
       >
         {{procedure.title}}
