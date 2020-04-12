@@ -7,12 +7,12 @@ const BASE_PATIENT_API = 'http://localhost:3000/patients';
 
 export const actions: ActionTree<PatientsStateInterface, any> = {
   async getPatients({ commit }) {
-    console.log(this.state);
     try {
       const response = await axios.get(BASE_PATIENT_API);
       const patients = response.data;
       commit('setPatientsToStore', patients);
     } catch (e) {
+      this.dispatch('NotificationStore/showErrors', e);
       throw new Error(e);
     }
   },
@@ -22,6 +22,7 @@ export const actions: ActionTree<PatientsStateInterface, any> = {
       const patient = response.data;
       commit('setCurrentPatient', patient);
     } catch (e) {
+      this.dispatch('NotificationStore/showErrors', e);
       throw new Error(e);
     }
   },
@@ -38,6 +39,7 @@ export const actions: ActionTree<PatientsStateInterface, any> = {
       const response = await request.data;
       commit('setCurrentPatient', response);
     } catch (e) {
+      this.dispatch('NotificationStore/showErrors', e);
       throw new Error(e);
     }
   },
@@ -47,6 +49,7 @@ export const actions: ActionTree<PatientsStateInterface, any> = {
       const patients = await response.data;
       commit('setPatientsToStore', patients);
     } catch (e) {
+      this.dispatch('NotificationStore/showErrors', e);
       throw new Error(e);
     }
   },

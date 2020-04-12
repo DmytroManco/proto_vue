@@ -11,6 +11,7 @@ export const actions: ActionTree<ProcedureState, any> = {
       const procedures = await response.data;
       commit('setProceduresList', procedures.procedures);
     } catch (e) {
+      this.dispatch('NotificationStore/showErrors', e);
       throw new Error(e);
     }
   },
@@ -29,6 +30,7 @@ export const actions: ActionTree<ProcedureState, any> = {
       const response = request.data;
       commit('setProceduresList', response.procedures);
     } catch (e) {
+      this.dispatch('NotificationStore/showErrors', e);
       throw new Error(e);
     }
   },
