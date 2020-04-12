@@ -3,7 +3,7 @@
     <h3>Add Procedure</h3>
     <form
       class="form add-procedure"
-      @submit="submitForm($event)"
+      @submit.prevent="submitForm($event)"
     >
       <div class="form-row">
         <label class="form-label">
@@ -82,13 +82,11 @@ export default class PatientAddProcedure extends Vue {
   }
 
   submitForm(event: HTMLFormElement): void {
-    event.preventDefault();
-
     if (!this.model.title || !this.model.provider) {
       return;
     }
 
-    let procedures = [...this.$store.getters.getProceduresList];
+    let procedures = [...this.$store.state.ProceduresStore.procedures];
     const index = this.isProcedureExists(this.model);
 
     if (index > 0) {
@@ -98,16 +96,16 @@ export default class PatientAddProcedure extends Vue {
     procedures = index > 0 ? procedures : [...procedures, this.model];
 
     const payload = {
-      userID: this.$store.getters.getCurrentPatient.id,
+      userID: this.$store.state.PatientsStore.currentPatient.id,
       procedures,
     };
 
-    this.$store.dispatch('updatePatientProcedures', payload);
+    this.$store.dispatch('ProceduresStore/updatePatientProcedures', payload);
     (event.target as unknown as HTMLFormElement).reset();
   }
 
   private isProcedureExists(procedure: ProcedureInterface): number {
-    return this.$store.getters.getProceduresList
+    return this.$store.state.ProceduresStore.procedures
       .findIndex((proc: ProcedureInterface) => proc.title === procedure.title
         && proc.provider === procedure.provider);
   }

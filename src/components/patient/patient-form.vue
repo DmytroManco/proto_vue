@@ -1,7 +1,7 @@
 <template>
   <form
     class="patient-form"
-    @submit="submitForm($event)"
+    @submit.prevent="submitForm($event)"
     v-if="model">
     <div class="form-row">
       <label class="form-label">
@@ -73,17 +73,19 @@ export default class PatientForm extends Vue {
   disableSubmit = false;
 
   get model() {
-    if (!this.$store.getters.getCurrentPatient) {
+    const patient = this.$store.state.PatientsStore.currentPatient;
+
+    if (!patient) {
       return null;
     }
 
-    return new PatientFormModel(this.$store.getters.getCurrentPatient);
+    return new PatientFormModel(patient);
   }
 
   submitForm(event: InputEvent): void {
-    const updatedPatient = Object.assign(this.$store.getters.getCurrentPatient, this.model);
-    this.$store.dispatch('updatePatientInfo', updatedPatient);
-    event.preventDefault();
+    const patient = this.$store.state.PatientsStore.currentPatient;
+    const updatedPatient = Object.assign(patient, this.model);
+    this.$store.dispatch('PatientsStore/updatePatientInfo', updatedPatient);
   }
 
   onError(error: FormControlErrorInterface): void {

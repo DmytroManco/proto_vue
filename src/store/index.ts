@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import { NotificationStore } from '@/store/modules/notification/notification.store';
 import { ProceduresStore } from './modules/procedures/procedures.store';
 import { PatientsStore } from './modules/patient/patients.store';
 
@@ -15,5 +16,6 @@ export default new Vuex.Store({
   modules: {
     PatientsStore,
     ProceduresStore,
+    NotificationStore,
   },
 });
