@@ -13,7 +13,6 @@ export const actions: ActionTree<PatientsStateInterface, any> = {
       commit('setPatientsToStore', patients);
     } catch (e) {
       this.dispatch('NotificationStore/showErrors', e);
-      throw new Error(e);
     }
   },
   async getPatient({ commit }, id: string) {
@@ -23,7 +22,6 @@ export const actions: ActionTree<PatientsStateInterface, any> = {
       commit('setCurrentPatient', patient);
     } catch (e) {
       this.dispatch('NotificationStore/showErrors', e);
-      throw new Error(e);
     }
   },
   async updatePatientInfo({ commit }, patient: PatientInterface) {
@@ -40,7 +38,6 @@ export const actions: ActionTree<PatientsStateInterface, any> = {
       commit('setCurrentPatient', response);
     } catch (e) {
       this.dispatch('NotificationStore/showErrors', e);
-      throw new Error(e);
     }
   },
   async patientsServerSearch({ commit }, query: string) {
@@ -50,7 +47,6 @@ export const actions: ActionTree<PatientsStateInterface, any> = {
       commit('setPatientsToStore', patients);
     } catch (e) {
       this.dispatch('NotificationStore/showErrors', e);
-      throw new Error(e);
     }
   },
 };
