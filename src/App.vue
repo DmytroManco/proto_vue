@@ -23,7 +23,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Navbar from '@/components/navbar/navbar.vue';
 import { NAV_ROUTES } from '@/constants/routes.constant';
-import DxeToast from '@/components/tast/toast.vue';
+import DxeToast from '@/components/toast/toast.vue';
 
   @Component({
     components: {

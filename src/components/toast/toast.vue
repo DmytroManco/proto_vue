@@ -32,7 +32,7 @@
 import {
   Component, Vue, Prop,
 } from 'vue-property-decorator';
-import { DEFAULT_TOAST_OPTIONS } from '@/components/tast/toast.constant';
+import { DEFAULT_TOAST_OPTIONS } from '@/components/toast/toast.constant';
 import { ToastOptions } from '@/interfaces/toast.d';
 
 @Component({

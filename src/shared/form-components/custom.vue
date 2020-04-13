@@ -8,6 +8,7 @@
       <br>
       <input
         type="text"
+        :placeholder="placeholder"
         :key="inputKey"
         :value="value"
         v-bind:class="{ 'invalid': !!errors[0] }"
@@ -32,5 +33,6 @@ export default class CustomInput extends Vue {
   @Prop() rules!: string;
   @Prop() value!: string;
   @Prop() inputKey!: string;
+  @Prop({ default: '' }) placeholder!: string;
 }
 </script>

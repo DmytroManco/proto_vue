@@ -9,6 +9,7 @@
         <!-- .form-row -->
         <div class="form-row">
           <custom-input
+            placeholder="Name"
             :rules="model.getRules('name')"
             :inputKey="'name'"
             v-model="model.name"
@@ -16,6 +17,7 @@
             Name
           </custom-input>
           <custom-input
+            placeholder="Email"
             :rules="model.getRules('email')"
             :inputKey="'email'"
             v-model="model.email"
@@ -43,6 +45,7 @@
         <!-- end .add-validators -->
         <div class="form-row" v-if="showAdditional">
           <custom-input
+            placeholder="Additional Form Element"
             rules="required"
             :inputKey="'oprions'"
             v-model="model.options"
@@ -58,6 +61,7 @@
           >
             <custom-input
               rules="required"
+              :placeholder="property"
               :inputKey="'user-'+ property"
               v-model="model.additionalControls[property]"
             >
