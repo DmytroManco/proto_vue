@@ -1,3 +1,5 @@
+import { ToastError } from '@/interfaces/toast';
+
 export interface NotificationState {
-  error: any;
+  error: ToastError | null;
 }
