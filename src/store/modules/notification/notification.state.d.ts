@@ -1,3 +1,5 @@
+import { ToastError } from '@/interfaces/tast.d';
+
 export interface NotificationState {
-  error: any;
+  error: ToastError | null;
 }
