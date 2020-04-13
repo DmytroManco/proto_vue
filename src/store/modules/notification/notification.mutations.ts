@@ -2,10 +2,16 @@ import { MutationTree } from 'vuex';
 import { NotificationState } from './notification.state.d';
 
 export const mutations: MutationTree<NotificationState> = {
-  setError: (state, error) => {
-    state.error = error;
+  setToast: (state, error) => {
+    state.toast = error;
   },
-  clearError: (state) => {
-    state.error = null;
+  clearToast: (state) => {
+    state.toast = null;
+  },
+  showNotification: (state) => {
+    state.showToast = true;
+  },
+  hideNotification: (state) => {
+    state.showToast = false;
   },
 };

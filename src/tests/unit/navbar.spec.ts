@@ -6,7 +6,7 @@ import { ROUTES_NAMES, NAV_ROUTES } from '@/constants/routes.constant';
 import { SearchActionInterface } from '@/interfaces/search.d';
 import { $route, $router, $store } from '@/tests/mocks/ut-moks';
 
-describe('navbar.vue', () => {
+describe('toast.vue', () => {
   let wrapper: Wrapper<any>;
   let action: SearchActionInterface;
   beforeEach(() => {
