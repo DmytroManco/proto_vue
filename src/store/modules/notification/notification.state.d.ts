@@ -1,4 +1,4 @@
-import { ToastError } from '@/interfaces/toast';
+import { ToastError } from '@/interfaces/toast.d';
 
 export interface NotificationState {
   error: ToastError | null;
