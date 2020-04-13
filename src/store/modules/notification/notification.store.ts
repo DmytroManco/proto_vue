@@ -9,7 +9,8 @@ const namespaced = true;
 export const NotificationStore: Module<NotificationState, any> = {
   namespaced,
   state: {
-    error: null,
+    toast: null,
+    showToast: false,
   },
   getters,
   actions,
