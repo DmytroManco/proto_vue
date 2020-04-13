@@ -2,6 +2,7 @@
   <div id="app">
     <navbar :navItems="routes"></navbar>
     <router-view/>
+    <dxe-toast :snackbar="$store.state.NotificationStore.showToast"></dxe-toast>
   </div>
 </template>
 
@@ -22,13 +23,15 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Navbar from '@/components/navbar/navbar.vue';
 import { NAV_ROUTES } from '@/constants/routes.constant';
+import DxeToast from '@/components/tast/toast.vue';
 
   @Component({
     components: {
+      DxeToast,
       Navbar,
     },
   })
 export default class App extends Vue {
-  public routes = NAV_ROUTES;
+  routes = NAV_ROUTES;
 }
 </script>
