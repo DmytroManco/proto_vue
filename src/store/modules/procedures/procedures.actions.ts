@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { ActionTree } from 'vuex';
+import { STORE_ACTIONS } from '@/constants/store.constants';
 import { ProcedureState } from './procedures.state.d';
 
 const BASE_PROCEDURES_API = 'http://localhost:3000/procedures';
@@ -11,7 +12,7 @@ export const actions: ActionTree<ProcedureState, any> = {
       const procedures = await response.data;
       commit('setProceduresList', procedures.procedures);
     } catch (e) {
-      this.dispatch('NotificationStore/showErrors', e);
+      this.dispatch(STORE_ACTIONS.NOTIFICATION_ACTIONS.showErrors, e);
     }
   },
   async updatePatientProcedures({ commit }, payload) {
@@ -29,7 +30,7 @@ export const actions: ActionTree<ProcedureState, any> = {
       const response = request.data;
       commit('setProceduresList', response.procedures);
     } catch (e) {
-      this.dispatch('NotificationStore/showErrors', e);
+      this.dispatch(STORE_ACTIONS.NOTIFICATION_ACTIONS.showErrors, e);
     }
   },
 };
