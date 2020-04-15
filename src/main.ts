@@ -5,6 +5,7 @@ import vuetify from '@/plugins/vuetify';
 import App from './App.vue';
 import router from './router';
 import store from './store';
+import '@/styles/main.scss';
 
 // Object.keys(rules).forEach((rule) => {
 //   extend(rule, rules[rule]);
